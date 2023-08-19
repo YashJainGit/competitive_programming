@@ -12,7 +12,6 @@ typedef long long ll;
 
 const bool testcases = true;
 void solve(){
-    
 
 
 }
