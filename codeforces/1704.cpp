@@ -12,26 +12,18 @@ typedef long long ll;
 
 const bool testcases = true;
 void solve(){
-    ll n;
-    cin >> n;
-    string S, T;
-    cin >> S >> T;
-    
-    ll a=0, b=0;
+    ll n, m;
+    cin >> n >> m;
+
+    ll a[n][m];
     for (ll i=0; i<n; i++){
-        if (S[i]!=T[i])a++;
+        for (ll j=0; j<m; j++){
+            cin >> a[i][j];
+        }
     }
-    reverse(S.begin(), S.end());
-
-    for (ll i=0; i<n; i++){
-        if (S[i]!=T[i])b++;
-    }
-
-    b = b*2-1;
-
-    
-    cout << min(a, b)*2 << '\n';
-
+    for (ll j=0; j<m; j++){
+         
+    }    
 }
 
 
@@ -41,6 +33,6 @@ int main(){
     cout<<fixed<<setprecision(0);
     ll t=1;
     if (testcases) cin >> t;
-    while(t--) solve(); 
+    while(t--) solve();
     return 0;
 }

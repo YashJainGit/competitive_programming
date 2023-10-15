@@ -12,24 +12,21 @@ typedef long long ll;
 
 const bool testcases = true;
 void solve(){
-    ll n, q;
-    cin >> n >> q;
-    ll m=0, a[n];
-    for (ll i=0; i<n; i++){
-        ll j;
-        cin >> j;
-        m = max(j, m);
-        a[i] = m;
-    }
-    for (ll i=0; i<q; i++){
-        ll w;
-        cin >> w;
+    ll n;
+    cin >> n;
 
-        ll l, r;
-        ll j = l+(r-l)/2;
+    string w;
+    cin >> w;
+    char a=w[0], b=w[1];
+    ll c=1;
+    for (ll i=2; i<n; i++){
+        if (a!=w[i]){
+            c++;
+        }
+        a = b;
+        b = w[i];
     }
-    cout << '\n';
-    
+    cout << c << '\n';
 }
 
 
@@ -42,3 +39,4 @@ int main(){
     while(t--) solve();
     return 0;
 }
+
