@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -12,18 +13,12 @@ typedef long long ll;
 
 const bool testcases = true;
 void solve(){
-    ll n, m;
-    cin >> n >> m;
 
-    ll a[n][m];
-    for (ll i=0; i<n; i++){
-        for (ll j=0; j<m; j++){
-            cin >> a[i][j];
-        }
-    }
-    for (ll j=0; j<m; j++){
-         
-    }    
+    ll n;
+    cin >> n;
+
+    
+
 }
 
 
@@ -36,3 +31,4 @@ int main(){
     while(t--) solve();
     return 0;
 }
+
