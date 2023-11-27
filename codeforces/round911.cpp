@@ -15,22 +15,23 @@ void solve(){
     ll n;
     cin >> n;
 
-    ll a = ceil(sqrt(n));
-    ll b[n];
+    ll a[n];
+    for (ll &i:a){
+        cin >> i;
+    }
 
-    ll mi = n;
-    for (ll i=n-1; i>=0; i--){
-        if (a*a-1>n){
-            a--;
+    sort(a, a+n);
+
+    ll s=0;
+    for (ll i=0; i<n; i++){
+        for (ll j=i+1; j<n-1; j++){
+            ll k = __gcd(a[j]-a[i], a[i]);
+            //cout << i+1 << ' ' << j+1 << ':' << (n-j-1) << '*' << k << '\n';
+            s += (n-j-1)*k;
         }
-        
-        b[i] = a*a-i;
     }
-    for (ll i: b){
-        cout << i << ' ';
-    }
-    cout << '\n';
-    
+
+    cout << s << '\n';
 }
 
 

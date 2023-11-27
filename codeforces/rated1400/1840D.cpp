@@ -15,34 +15,23 @@ void solve(){
     ll n;
     cin >> n;
 
-    ll a[n], u[n];
-    for (ll i=0;i<n;i++){
+    ll a[n];
+    for (ll i=0; i<n; i++){
         cin >> a[i];
     }
-    ll mu=llmin;
-    ll mc = 0;
 
-    for (ll i=0;i<n;i++){
-        ll x;
-        cin >> x;
-        u[i] = a[i]-x;
-        
-        if (u[i] > mu){
-            mu = max(u[i], mu);
-            mc = 1;
-        }else if(u[i] == mu){
-            mc++;
-        }
+    sort(a, a+n);
 
-    }
-    cout << mc << '\n';
-    for (ll i=0; i<n ; i++){
-        if (u[i]==mu){
-            cout << i+1 << ' ';
+    ll l=a[0], r=a[n-1];
+    while (l<r){
+        ll i = l + (r-l)/2;
+
+        ll sum=0;
+        for (ll i=0;i<n;i++){
+            sum += min(abs(a[i]));
         }
     }
-    cout << '\n';
-
+    
 }
 
 
@@ -55,4 +44,3 @@ int main(){
     while(t--) solve();
     return 0;
 }
-

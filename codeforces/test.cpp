@@ -10,21 +10,10 @@ typedef long long ll;
 
 #define rep(x,y,z) for(int x=(y);x<=(z);x++)
 
-const bool testcases = true;
+const bool testcases = false;
 void solve(){
-    ll n, m;
-    cin >> n >> m;
-
-    ll a[n] = {};
-    for (ll i=0; i<m; i++){
-        ll x, y;
-        cin >> x >> y;
-        a[x]++;
-        a[y]++;
-    }
-    
-    
-    
+    ll a[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+    cout << a[0][3] << '\n';
 }
 
 

@@ -13,27 +13,25 @@ typedef long long ll;
 const bool testcases = true;
 void solve(){
     ll n;
-    cin >>n;
-    
-    ll f;
-    cin >> f;
-    bool bwin=true;
+    cin >> n;
 
-    for (ll i=0; i<n-1; i++){
-        ll x;
-        cin >> x;
+    ll f = 0;
 
-        if (x<f){
-            bwin=false;
+    for (ll i=1; i<=sqrt(n); i++){
+        if (n%i==0){
+           f+=2;
         }
     }
+    if ((int)sqrt(n)==sqrt(n)){
+        f--;
+    }
 
-    if (bwin){
-        cout << "Bob\n";
+    ll j=0;
+    for (ll i=0; i<n; i++, j++){
+        cout << (char)('a'+j%f);
     }
-    else{
-        cout << "Alice\n";
-    }
+    cout << '\n';
+    
 }
 
 
