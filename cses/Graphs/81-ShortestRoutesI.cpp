@@ -7,7 +7,9 @@ struct path{
     vector<int> c;
 };
 
+dfs(){
 
+}
 
 void solve(){
     int n,m;
