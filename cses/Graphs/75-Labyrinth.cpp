@@ -4,7 +4,7 @@ using namespace std;
 
 int n, m;
 bool a[1001][1001];   
-int v[1001][1001];
+long v[1001][1001];
 string p;
 int sr, sc, er, ec;
 

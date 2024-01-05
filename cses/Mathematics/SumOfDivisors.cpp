@@ -12,8 +12,8 @@ void solve(){
     for (int i=1; i<=n;) {
         int k = n/i;
         
-        sum+= (k)*(n/k+1-i);
-        cout << i << '\n';
+        sum += (k)*(n/k+1-i);
+        //cout << i << '\n';
         i = n/k+1;
     }
     cout << sum << '\n';
