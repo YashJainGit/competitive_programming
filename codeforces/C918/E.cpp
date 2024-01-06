@@ -6,7 +6,7 @@ const bool testcases=true;
 
 
 void solve(){
-    unordered_map<long long, bool> mp;
+    map<long long, bool> mp;
 
     int n;
     cin >> n;

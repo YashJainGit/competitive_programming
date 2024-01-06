@@ -2,8 +2,14 @@
 
 using namespace std;
 
-const bool testcases=false;
+const bool testcases=true;
 void solve(){
+    int n, q;
+    cin >> n >> q;
+
+    string s;
+    cin >> s;
+     
     
 }
 

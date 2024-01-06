@@ -2,9 +2,17 @@
 
 using namespace std;
 
-const bool testcases=false;
+const bool testcases=true;
 void solve(){
+    int a, b;
+    cin >> a >> b;
     
+    if ((a+b)%2==0){
+        cout << "Bob\n";
+    }
+    else{
+        cout << "Alice\n";
+    }
 }
 
 

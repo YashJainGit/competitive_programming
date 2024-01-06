@@ -2,9 +2,22 @@
 
 using namespace std;
 
-const bool testcases=false;
+const bool testcases=true;
 void solve(){
-    
+    int n;
+    cin>>n;
+
+    string s;
+    cin >> s;
+
+    int c0 = 0;
+    for (char i:s){
+        if (i=='0'){
+            cout << "Yes\n";
+            return;
+        }
+    }
+    cout << "No\n";
 }
 
 

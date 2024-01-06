@@ -2,8 +2,17 @@
 
 using namespace std;
 
-const bool testcases=false;
+const bool testcases=true;
 void solve(){
+    char a, b, c;
+    cin >>a>>b>>c;
+
+    if (a=='a' || b=='b' || c=='c'){
+        cout << "yes\n";
+    }
+    else{
+        cout << "no\n";
+    }
     
 }
 

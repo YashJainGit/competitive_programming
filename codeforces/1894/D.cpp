@@ -2,8 +2,9 @@
 
 using namespace std;
 
-const bool testcases=false;
+const bool testcases=true;
 void solve(){
+    
     
 }
 
