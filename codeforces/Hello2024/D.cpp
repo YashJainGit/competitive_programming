@@ -7,31 +7,16 @@ void solve(){
     int n;
     cin >> n;
 
+    vector<bool> d(n);
     vector<int> a(n);
-
     for (int &i:a){
         cin >> i;
     }
 
-    int s=INT_MAX, t=INT_MAX;
-    int g=0;
-    for (int i=0; i<n; i++){
-
-        if (a[i]>s){
-            t = a[i];
-            g++;
-        }
-        else if (a[i]<=t){
-            t = a[i];
-        }
-        else if (a[i]<=s){
-            s = a[i];
-        }
-
-        if (s<t) swap(s, t);
-    }
-
-    cout << g << '\n';
+    priority_queue<pair<int, int>> pq;
+    
+    
+    
 }
 
 

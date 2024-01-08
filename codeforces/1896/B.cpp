@@ -6,31 +6,21 @@ const bool testcases=true;
 void solve(){
     int n;
     cin >> n;
+    
+    string s;
+    cin >> s;
 
-    vector<int> a(n);
-
-    for (int &i:a){
-        cin >> i;
+    int g=0, v=0;
+    for (int i=0 ; i<n-1; i++){
+        if (s[i]=='A' && s[i+1]=='B'){
+            s[i+1]='A';
+            g+=v+1;
+            v=0;
+        }
+        else if (s[i]=='A'){
+            v++;
+        }
     }
-
-    int s=INT_MAX, t=INT_MAX;
-    int g=0;
-    for (int i=0; i<n; i++){
-
-        if (a[i]>s){
-            t = a[i];
-            g++;
-        }
-        else if (a[i]<=t){
-            t = a[i];
-        }
-        else if (a[i]<=s){
-            s = a[i];
-        }
-
-        if (s<t) swap(s, t);
-    }
-
     cout << g << '\n';
 }
 
