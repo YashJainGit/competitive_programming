@@ -1,30 +1,21 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+using ll=long long;
 
+const bool testcases=true;
 void solve(){
     int n;
     cin >> n;
 
     vector<int> a(n);
-
+    
     for (int &i:a){
         cin >> i;
     }
 
-    vector<int> ind(n);
-    for (int i=0; i<n; i++){
-        ind[i] = i;
-    }
+    int i=0; j=0;
 
-    sort(ind.begin(), ind.end(), [&](int i, int j){return a[i]<a[j];});
-
-    int g=1;
-    for (int i=1; i<n; i++){
-        g += ind[i]<ind[i-1];
-    }
-
-    
 }
 
 
@@ -33,7 +24,9 @@ int main(){
     cin.tie(0);
     cout<<fixed<<setprecision(0);
 
-    solve();
+    int t=1;
+    if (testcases) cin >> t;
+    while (t--)	solve();
 
     return 0;
 }

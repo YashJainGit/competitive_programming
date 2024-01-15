@@ -3,26 +3,30 @@
 using namespace std;
 
 void solve(){
+    
     int n;
     cin >> n;
 
-    vector<int> a(n);
+    multiset<int> m;
 
+    vector<int> a(n);
     for (int &i:a){
         cin >> i;
     }
 
-    vector<int> ind(n);
     for (int i=0; i<n; i++){
-        ind[i] = i;
-    }
+        auto ind = m.upper_bound(a[i]);
 
-    sort(ind.begin(), ind.end(), [&](int i, int j){return a[i]<a[j];});
-
-    int g=1;
-    for (int i=1; i<n; i++){
-        g += ind[i]<ind[i-1];
+        if (ind==m.end()){
+            m.insert(a[i]);
+        }
+        else{
+            m.erase(ind);
+            m.insert(a[i]);
+        }
     }
+    cout << m.size() << '\n';
+
 
     
 }

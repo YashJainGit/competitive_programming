@@ -10,11 +10,13 @@ void solve(){
     long long sum=0;
 
     for (int i=1; i<=n;) {
+        cout << i << ' ';
         int k = n/i;
-        
-        sum+= (k)*(n/k+1-i);
-        cout << i << '\n';
-        i = n/k+1;
+        int nxt = n/k+1;
+
+        cout << nxt << " to " << i << " : " << k << '\n'; 
+        sum+=(nxt-i)*(k)*(s);
+        i=nxt;
     }
     cout << sum << '\n';
 }
