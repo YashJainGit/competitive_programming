@@ -1,21 +1,25 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-using ll=long long;
 
-const bool testcases=true;
 void solve(){
     int n;
     cin >> n;
 
-    vector<int> a(n);
-    
-    for (int &i:a){
-        cin >> i;
+    vector<int> dp(n+1);
+
+    for (int i=1; i<n; i++){
+        
+        int j=i;
+        int m=INT_MAX;
+        while (j>0){
+            j%10;
+            j/=10;
+        }
+        
+
     }
-
-    int i=0; j=0;
-
+    
 }
 
 
@@ -24,9 +28,7 @@ int main(){
     cin.tie(0);
     cout<<fixed<<setprecision(0);
 
-    int t=1;
-    if (testcases) cin >> t;
-    while (t--)	solve();
+    solve();
 
     return 0;
 }
