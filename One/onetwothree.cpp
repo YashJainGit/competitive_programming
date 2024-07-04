@@ -3,41 +3,66 @@
 using namespace std;
 using ll=long long;
 
-const bool testcases=true;
+const bool testcases=false;
 const bool filein=false;
+const int maxn = 1e6+1;
+
+ll n, m;
+vector<pair<int , int>> s;
+unordered_map<int , ll> mp;
+
+ll calc(int cur, int i){
+    
+    if (mp.find(cur) != mp.end()) {
+        cout << "seen\n";`
+        return mp[cur];
+    }
+
+    while (i<n && s[i].second > cur){
+        i++;
+    }
+    if (i>=n){
+        return 0;
+    }
+
+    int left = (cur - s[i].second + 1);
+    int times =  1 + ((left - 1) / s[i].first);
+
+    mp[cur] = 2*times + calc(cur - (times*s[i].first), i+1);
+    return mp[cur];
+}
+
 
 void solve(){
+    cin >> n >> m;
 
+    vector<int> a(n);
+    vector<int> b(n);
+    vector<int> c(m);
 
-        int n;
-        cin >> n;
-        vector<int> a(n);
-        for (int &i:a){
-            cin >> i;
+    for (int &i:a) cin >> i;
+    for (int &i:b) cin >> i;
+    for (int &i:c) cin >> i;
+
+    s.resize(n, pair<int ,int>());
+    for (int i=0; i<n; i++){
+        s[i] = {a[i]-b[i], a[i]};
+    }
+
+    sort(s.begin(),s.end(), [&](pair<int ,int> p, pair<int  ,int > q){
+        if (p.first==q.first){
+            return p.second<q.second;
         }
+        return p.first<q.first;    
+    });
 
-        vector<ll> pf(n+1);
-        vector<ll> sf(n+1);
+    ll sm=0;
+    for (int i=0; i<m; i++){
 
-        for (int i=0; i<n; i++){
-            pf[i+1] = pf[i]+a[i];
-            sf[n-i-1] = sf[n-i]+a[n-i-1];
-        }
+        sm+=calc(c[i], 0);
 
-        ll m=0;
-        vector<int> inds;
-        for (int i=0; i<=n; i++){
-            //cout << pf[i] << ' ' << sf[i] << '\n';
-            int f = abs(pf[i])+sf[i];
-            if (f>m){
-                m = f;
-                inds = {i};
-            }
-            else if (f==m){
-                inds.push_back(i);
-            }
-        }
-        cout << m << '\n';
+    }
+    cout << sm << '\n';
 
 }
 
