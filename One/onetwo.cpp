@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -6,25 +5,28 @@ using ll=long long;
 
 const bool testcases=true;
 const bool filein=false;
+const int maxn = 3e5+4;
+
 
 void solve(){
-    string s;
-    cin >> s;
+    int n;
+    cin >> n;
 
-    for (int i=0; i<s.length()-1; i++){
-        if (s[i]=='0'){
-            cout << "No\n";
-            return;
+    string s, t;
+    cin >> s >> t;
+
+    int cnt=0;
+    for (int i=1; i<n-1; i++){
+        if (s[i-1]=='x' && s[i]=='.' && s[i+1]=='x' && t[i-1]=='.' && t[i]=='.' && t[i+1]=='.'){
+            cnt++;
+        }
+        if (t[i-1]=='x' && t[i]=='.' && t[i+1]=='x' && s[i-1]=='.' && s[i]=='.' && s[i+1]=='.'){
+            cnt++;
         }
     }
-
-    if (s[s.length()-1]=='9' || s[0]!='1'){
-        cout << "No\n";
-    }
-    else{
-        cout << "Yes\n";
-    }
+    cout <<  cnt << '\n';
 }
+
 
 
 int main(){
