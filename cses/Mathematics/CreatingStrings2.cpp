@@ -6,12 +6,6 @@ void solve(){
     vector<int> fact;
     vector<int> cnt(26);
 
-    string s;
-    cin >> s;
-
-    for (char c:s){
-
-    }
 }
 
 
