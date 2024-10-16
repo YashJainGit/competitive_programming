@@ -7,45 +7,46 @@ using ull=unsigned long long;
 const bool testcases=true;
 const bool filein=false;
 const string f="stacking";
-const int maxn = 5001;
+const int maxn = 1e5+10;
+const int mod = 1e9+7;
 
-struct x{
-    bool y0=false, y1=false;
-};
 
 void solve(){
-    int n;
-    cin >> n;
+    int n, k;
+    cin >> n >> k;
 
-    vector<x> l(n+1);
-    int c0=0, c1=0;
+    map<int, int> a;
     for (int i=0; i<n; i++){
-        int a, b;
-        cin >> a >> b;
-        if (b){
-            l[a].y1=1;
-            c1++;
-        }
-        else{
-            l[a].y0=1;
-            c0++;
-        }     
+        int x;
+        cin >> x;
+        a[x]++;
     }
-    ll ans = 0;
-    for (int i=0;i<=n;i++){
-        if (l[i].y0&&l[i].y1){
-            ans+=n-2;
-        }
-        if (i!=0 && i!=n){
-            if (l[i].y1&&l[i-1].y0&&l[i+1].y0){
-                ans++;
-            }
-            if (l[i].y0&&l[i-1].y1&&l[i+1].y1){
-                ans++;
-            }
-        }
+
+    vector<pair<int, int>> b;
+    for (auto it=a.begin(); it!=a.end(); it++){
+        b.push_back({it->first, it->second}); 
     }
-    cout << ans << '\n';
+   /*
+    for (int i=0; i<b.size(); i++){
+        cout << b[i].first << ' ' << b[i].second << '\n';
+    }
+
+   */ 
+    int j=0;
+    long cur=0, best=0;
+    for (int i=0; i<b.size(); i++){
+        cur+=b[i].second;
+        if (b[i].first-b[i-1].first>1){
+            j=i;
+            cur = b[i].second;
+        }
+        if (b[i].first-b[j].first+1>k){
+            cur -= b[j].second;
+            j++;
+        }
+        best = max(cur, best);
+    }
+    cout << best << '\n';
 }  
 
 int main(){

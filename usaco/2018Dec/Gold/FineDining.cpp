@@ -7,25 +7,34 @@ using ull=unsigned long long;
 const bool testcases=false;
 const bool filein=false;
 const string f="stacking";
-const int maxn = 1e5+10;
-const int mod = 1e9+7;
+const int nx = 5e4+10;
 
+int n, m, k;
+vector<vector<int>> dp(nx, vector<int>(2, -1));
+
+vector<vector<pair<int, int>>> tr(nx);
+vector<int> dp(nx);
+
+pair<int, bool> dfs(int i, bool h){
+    if (dp[i][h]!=-1){
+        return {dp[i][h], h};
+    }
+}
 
 void solve(){
-    int n, m;
-    cin >> n >> m;
+    cin >> n >> m >> k;
 
-    vector<int> a(n);
-    for (int i=0; i<n; i++){
-        cin >> a[i];
-    }
+    
+    for (int i=0; i<m; i++){
+        int a, b, t;
+        cin >> a >> b >> t;
 
-    vector<vector<int>> dp(m, vector<int>(m));
-    int cm = m;
-    for (int i=n-1; i>=0; i--){
-        
+        tr[a-1].emplace_back(b-1, t);
+        tr[b-1].emplace_back(a-1, t);
 
     }
+
+    
 }  
 
 int main(){
@@ -36,7 +45,7 @@ int main(){
     else{
         ios_base::sync_with_stdio(0);
         cin.tie(0);
-        cout<<fixed<<setprecision(50);
+        cout<<fixed<<setprecision(0);
     }
     int t=1;
     if (testcases) cin >> t;
